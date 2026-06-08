@@ -1,12 +1,5 @@
 package game
 
-const (
-  ROW_SIZE = 5
-  COL_SIZE = 5
-  BOARD_SIZE = ROW_SIZE * COL_SIZE
-  MAX_ADJACENCY_COUNT = 8
-)
-
 // stores the neighbors in a static array
 // and the count of valid neighbors in the Count field
 type AdjacencyList struct {
@@ -37,7 +30,7 @@ func init() {
 
 				// if neighbor is not out of the board
 				if newRow >= 0 && newRow < ROW_SIZE && newCol >= 0 && newCol < COL_SIZE {
-          list.Elements[list.Count] = newRow*5 + newCol // return to 1D index
+					list.Elements[list.Count] = newRow*5 + newCol // return to 1D index
 					list.Count++
 				}
 			}
