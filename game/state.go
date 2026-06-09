@@ -52,16 +52,16 @@ func (s State) GetMoves() []Move {
 			futureBoardIdx := neighbours[j]
 			futurePositionLevel := s.Board[futureBoardIdx]
 
+			// Level check
+			if futurePositionLevel > currentLevel + 1 || futurePositionLevel == GRADUATED {
+				continue
+			}
+
 			// Victory check
 			if futurePositionLevel == YEAR_4 {
 				// mentorAt is the index of the position where the professor was before
 				// just to avoid an invalid move and finish the simulation
 				moves = append(moves, NewMove(i, futureBoardIdx, currBoardIdx))
-				continue
-			}
-
-			// Level check
-			if futurePositionLevel > currentLevel + 1 || futurePositionLevel == GRADUATED {
 				continue
 			}
 
