@@ -23,7 +23,6 @@ type AITurnRequest struct {
 	TurnNumber       int      `json:"turn_number"`
 	TurnPhase        string   `json:"turn_phase"`
 	YourTeam         int      `json:"your_team"` // 1 = TURING, 2 = LOVELACE
-  TurnTeamID       int      `json:"turn_team_id"` // 1 = TURING, 2 = LOVELACE
 	Board            [][]Cell `json:"board"`
 	ProfessorToPlace *string  `json:"professor_to_place"`
 }

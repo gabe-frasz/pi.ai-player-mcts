@@ -44,7 +44,7 @@ func MoveHandler(w http.ResponseWriter, r *http.Request) {
 
 	bestMove := mcts.Search(state, THINK_TIME)
 	isWinningMove := state.Board[bestMove.MoveTo] == game.YEAR_4
-	response := MoveToResponse(bestMove, req.TurnTeamID, isWinningMove)
+	response := MoveToResponse(bestMove, req.YourTeam, isWinningMove)
 
   fmt.Println(state)
   fmt.Println(bestMove)

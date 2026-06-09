@@ -16,7 +16,7 @@ func RequestToState(req AITurnRequest) game.State {
 			}
 
 			profName := *cell.Professor
-			internalProfIdx := game.ProfNameToIndex(req.TurnTeamID, profName)
+			internalProfIdx := game.ProfNameToIndex(req.YourTeam, profName)
 			internalProfs[internalProfIdx] = int8(idx)
 		}
 	}
