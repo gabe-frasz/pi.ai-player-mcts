@@ -1,6 +1,9 @@
 package mcts
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 func Search[M any](initialState State[M], maxDuration time.Duration) M {
 	root := NewRootNode(initialState)
@@ -30,6 +33,8 @@ SearchLoop:
 			node.Backpropagate(terminalState)
 		}
 	}
+
+	fmt.Printf("🧠 Motor desligado: %d simulações realizadas.\n", root.Visits)
 
 	// MCTS rule: pick the node with the most Visits
 	// This node is more resistant against the opponent's counter-moves.
