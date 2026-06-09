@@ -9,7 +9,7 @@ import (
 	"github.com/gabe-frasz/pi.ai-player-mcts/mcts"
 )
 
-const THINK_TIME = 4500 * time.Millisecond
+const THINK_TIME = 4300 * time.Millisecond
 
 func HealthHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
