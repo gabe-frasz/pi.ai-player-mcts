@@ -2,7 +2,6 @@ package api
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"time"
 
@@ -45,9 +44,6 @@ func MoveHandler(w http.ResponseWriter, r *http.Request) {
 	bestMove := mcts.Search(state, THINK_TIME)
 	isWinningMove := state.Board[bestMove.MoveTo] == game.YEAR_4
 	response := MoveToResponse(bestMove, req.YourTeam, isWinningMove)
-
-  fmt.Println(state)
-  fmt.Println(bestMove)
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)

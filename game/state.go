@@ -61,8 +61,7 @@ func (s State) GetMoves() []Move {
 			}
 
 			// Level check
-			diff := futurePositionLevel - currentLevel
-			if diff < -1 || diff > 1 || futurePositionLevel == GRADUATED {
+			if futurePositionLevel > currentLevel + 1 || futurePositionLevel == GRADUATED {
 				continue
 			}
 

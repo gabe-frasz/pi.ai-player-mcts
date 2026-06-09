@@ -9,7 +9,7 @@ const (
 )
 
 type Cell struct {
-	Level     int     `json:"value"`
+	Level     int     `json:"level"`
 	Professor *string `json:"professor"`
 }
 
