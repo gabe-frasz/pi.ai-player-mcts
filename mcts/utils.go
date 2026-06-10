@@ -16,15 +16,23 @@ func calculateUCT[M any](node *Node[M]) float64 {
 	return winRate + exploration
 }
 
-func getMostVisitedChild[M any](node *Node[M]) *Node[M] {
-	var bestChild *Node[M]
+func getMostVisitedChild[M any](nodes []*Node[M]) *Node[M] {
+	totalVisits := make(map[any]int)
+	var bestMove *Node[M]
 	maxVisits := -1
 
-	for _, child := range node.Children {
-		if child.Visits > maxVisits {
-			maxVisits = child.Visits
-			bestChild = child
+	for _, node := range nodes {
+		for _, child := range node.Children {
+			// Uses interface{} as a temporary key to sum equal moves
+			moveKey := any(child.Move)
+			totalVisits[moveKey] += child.Visits
+
+			if totalVisits[moveKey] > maxVisits {
+				maxVisits = totalVisits[moveKey]
+				bestMove = child
+			}
 		}
 	}
-	return bestChild
+
+	return bestMove
 }

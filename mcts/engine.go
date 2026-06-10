@@ -69,7 +69,7 @@ func (n *Node[M]) Expand() *Node[M] {
 	return child
 }
 
-func (n *Node[M]) Rollout() State[M] {
+func (n *Node[M]) Rollout(localRand *rand.Rand) State[M] {
 	currentState := n.State
 
 	// Play until the game is over
@@ -79,7 +79,7 @@ func (n *Node[M]) Rollout() State[M] {
 			break
 		}
 
-		randomMove := moves[rand.Intn(len(moves))]
+		randomMove := moves[localRand.Intn(len(moves))]
 		currentState = currentState.CloneAndApplyMove(randomMove)
 	}
 

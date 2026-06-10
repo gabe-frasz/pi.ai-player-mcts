@@ -53,7 +53,7 @@ func (s State) GetMoves() []Move {
 			futurePositionLevel := s.Board[futureBoardIdx]
 
 			// Level check
-			if futurePositionLevel > currentLevel + 1 || futurePositionLevel == GRADUATED {
+			if futurePositionLevel > currentLevel+1 || futurePositionLevel == GRADUATED {
 				continue
 			}
 

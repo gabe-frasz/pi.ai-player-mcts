@@ -8,8 +8,6 @@ import (
 	"github.com/gabe-frasz/pi.ai-player-mcts/api"
 )
 
-// TODO: verify viability of using go routines
-
 func main() {
 	http.HandleFunc("/health", api.HealthHandler)
 	http.HandleFunc("/move", api.MoveHandler)
